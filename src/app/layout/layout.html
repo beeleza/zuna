@@ -38,9 +38,9 @@
                     </a>
                 </li>
                 <li>
-                    <a (click)="toggleSidebar()" [routerLink]="['/dashboard/reminders']" class="flex gap-2 items-center p-2 rounded hover:bg-gray-700">
-                        <mat-icon aria-hidden="false">notifications_active</mat-icon>
-                        Lembretes
+                    <a (click)="toggleSidebar()" [routerLink]="['/dashboard/categories']" class="flex gap-2 items-center p-2 rounded hover:bg-gray-700">
+                        <mat-icon aria-hidden="false">account_circle</mat-icon>
+                        Perfil
                     </a>
                 </li>
             </ul>
@@ -48,10 +48,10 @@
     </div>
 
     <div class="p-4 border-t border-gray-700 flex items-center space-x-3 transition">
-        <a href="#" class="flex gap-2 items-center p-2 rounded hover:bg-gray-700">
-            <mat-icon aria-hidden="false">account_circle</mat-icon>
-            Nome do usuario
-        </a>
+        <button (click)="logout()" href="#" class="flex gap-2 items-center p-2 rounded hover:bg-gray-700">
+            <mat-icon aria-hidden="false">logout</mat-icon>
+            sair
+        </button>
     </div>
 </aside>
 

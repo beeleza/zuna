@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -8,5 +8,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './card.css'
 })
 export class Card {
-
+  @Input() totalTransactions!: number;
+  @Input() totalIncome!: number;
+  @Input() totalExpenses!: number;
+  @Input() currentBalance!: number;
 }
