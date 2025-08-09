@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Layout } from './layout/layout';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -10,6 +11,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: Layout,
+    canActivate: [authGuard],
     children: [
         { path: '', component: Dashboard },
         { path: 'transactions', loadChildren: () => import('./pages/transactions/transactions.routes') },
