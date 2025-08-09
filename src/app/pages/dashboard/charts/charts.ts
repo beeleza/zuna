@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
+import { ChartConfiguration, ChartData } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-charts',
-  imports: [BaseChartDirective, MatButton],
+  imports: [BaseChartDirective],
   templateUrl: './charts.html',
   styleUrl: './charts.css',
 })

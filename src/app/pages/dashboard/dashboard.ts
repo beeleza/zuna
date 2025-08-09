@@ -3,12 +3,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { Card } from './card/card';
 import { Table } from './table/table';
-import { Charts } from './charts/charts';
 import { TransactionService } from '../../services/transactions.service';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MatIconModule, MatCardModule, Card, Table, Charts],
+  imports: [MatIconModule, MatCardModule, Card, Table],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -17,6 +16,7 @@ export class Dashboard implements OnInit {
   totalIncome = 0;
   totalExpenses = 0;
   currentBalance = 0;
+  transactions: any[] = [];
 
   constructor(private transactionService: TransactionService) {}
 
@@ -30,6 +30,7 @@ export class Dashboard implements OnInit {
       this.totalIncome = data.totalIncome;
       this.totalExpenses = data.totalExpenses;
       this.currentBalance = data.currentBalance;
+      this.transactions = data.transactions;
     });
   }
 
