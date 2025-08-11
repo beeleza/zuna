@@ -1,9 +1,10 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-card',
-  imports: [MatCardModule],
+  imports: [MatCardModule, CurrencyPipe],
   templateUrl: './card.html',
   styleUrl: './card.css'
 })

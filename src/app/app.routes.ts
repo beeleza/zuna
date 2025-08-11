@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { Login } from './pages/login/login';
-import { Dashboard } from './pages/dashboard/dashboard';
+import { Home } from './features/home/home';
+import { Login } from './features/login/login';
 import { Layout } from './layout/layout';
-import { authGuard } from './guard/auth.guard';
+import { authGuard } from './core/guard/auth.guard';
+import { Dashboard } from './features/dashboard/dashboard';
+
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -14,9 +15,9 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
         { path: '', component: Dashboard },
-        { path: 'transactions', loadChildren: () => import('./pages/transactions/transactions.routes') },
-        { path: 'categories', loadChildren: () => import('./pages/categories/categories.routes') },
-        { path: 'reminders', loadChildren: () => import('./pages/reminders/reminders.routes') }
+        { path: 'transactions', loadChildren: () => import('./features/transactions/transactions.routes') },
+        { path: 'categories', loadChildren: () => import('./features/categories/categories.routes') },
+        { path: 'reminders', loadChildren: () => import('./features/reminders/reminders.routes') }
     ],
   },
 ];

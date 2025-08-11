@@ -15,7 +15,7 @@
                 Total de entradas
             </mat-card-title>
             <mat-card-subtitle class="text-3xl font-bold text-gray-900 mt-2">
-                R$ {{ totalIncome }}
+                {{ totalIncome | currency:'BRL' }}
             </mat-card-subtitle>
         </mat-card-header>
     </mat-card>
@@ -25,7 +25,7 @@
                 Total de despesas
             </mat-card-title>
             <mat-card-subtitle class="text-3xl font-bold text-gray-900 mt-2">
-                R$ {{ totalExpenses }}
+                {{ totalExpenses | currency:'BRL' }}
             </mat-card-subtitle>
         </mat-card-header>
     </mat-card>
@@ -35,7 +35,7 @@
                 Saldo atual
             </mat-card-title>
             <mat-card-subtitle class="text-3xl font-bold text-gray-900 mt-2">
-                R$ {{ currentBalance }}
+                {{ currentBalance | currency:'BRL' }}
             </mat-card-subtitle>
         </mat-card-header>
     </mat-card>

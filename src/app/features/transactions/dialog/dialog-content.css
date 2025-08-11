@@ -1,0 +1,15 @@
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; // espaço entre os campos
+  margin-top: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.dialog-actions {
+  padding: 8px 16px;
+  border-top: 1px solid #e0e0e0;
+}
