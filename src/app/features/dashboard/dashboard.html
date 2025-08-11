@@ -1,10 +1,16 @@
 <div class="flex flex-col gap-4">
-    <app-card [totalTransactions]="totalTransactions"
+  <app-card
+    [totalTransactions]="totalTransactions"
     [totalIncome]="totalIncome"
     [totalExpenses]="totalExpenses"
-    [currentBalance]="currentBalance"></app-card>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-        
+    [currentBalance]="currentBalance"
+  ></app-card>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    <div class="w-full h-80">
+      <!-- altura fixa 20rem -->
+      <app-chart [labels]="chartLabels" [data]="chartData" class="w-full h-full"></app-chart>
     </div>
-    <!-- <app-table [transactions]="transactions"></app-table> -->
+  </div>
+
+  <!-- <app-table [transactions]="transactions"></app-table> -->
 </div>
