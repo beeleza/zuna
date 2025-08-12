@@ -47,8 +47,8 @@ export class TransactionService {
   getAll(
     page: number = 1,
     limit: number = 5,
-    startDate: string,
-    endDate: string
+    startDate?: string,
+    endDate?: string
   ): Observable<ApiResponse> {
     const params: any = {
       page: page.toString(),

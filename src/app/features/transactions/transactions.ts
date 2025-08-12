@@ -4,9 +4,13 @@ import { CurrencyPipe, DatePipe, SlicePipe } from '@angular/common';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogContentDialog } from './dialog/dialog-content';
-import { Transaction, TransactionService } from '../../core/services/transactions.service';
+import {
+  ApiResponse,
+  Transaction,
+  TransactionService,
+} from '../../core/services/transactions.service';
 
 @Component({
   selector: 'app-transactions',
@@ -18,7 +22,7 @@ import { Transaction, TransactionService } from '../../core/services/transaction
     MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   templateUrl: './transactions.html',
   styleUrl: './transactions.css',
@@ -28,43 +32,44 @@ export class Transactions implements OnInit {
   displayedColumns: string[] = [
     'position',
     'descricao',
+    'categoria',
     'valor',
     'status',
     'data',
-    'acoes'
+    'acoes',
   ];
 
   readonly dialog = inject(MatDialog);
 
   totalTransactions = 0;
   pageIndex = 0;
-  pageSize = 10;
+  pageSize = 5;
 
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
-    // this.loadTransactions();
+    this.loadTransactions();
   }
 
-  // loadTransactions() {
-  //   this.transactionService
-  //     .getAll(this.pageIndex + 1, this.pageSize)
-  //     .subscribe((data: DashboardSummary) => {
-  //       this.transactions = data.transactions;
-  //       this.totalTransactions = data.totalTransactions; // usado pelo paginator
-  //     });
-  // }
+  loadTransactions() {
+    this.transactionService
+      .getAll(this.pageIndex + 1, this.pageSize)
+      .subscribe((data) => {
+        this.transactions = data.transactions;
+        this.totalTransactions = data.pagination.totalItems;
+      });
+  }
 
   onPageChange(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    // this.loadTransactions();
+    this.loadTransactions();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
   }

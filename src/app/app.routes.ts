@@ -16,8 +16,7 @@ export const routes: Routes = [
     children: [
         { path: '', component: Dashboard },
         { path: 'transactions', loadChildren: () => import('./features/transactions/transactions.routes') },
-        { path: 'categories', loadChildren: () => import('./features/categories/categories.routes') },
-        { path: 'reminders', loadChildren: () => import('./features/reminders/reminders.routes') }
+        { path: 'categories', loadChildren: () => import('./features/categories/categories.routes') }
     ],
   },
 ];
